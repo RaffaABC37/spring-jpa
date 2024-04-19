@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.util.List;
+import org.springframework.util.StringUtils;
 
 @Service
 public class RegistrationServiceImpl implements RegistrationService {
@@ -23,17 +24,16 @@ public class RegistrationServiceImpl implements RegistrationService {
     @Override
     @Transactional
     public Registration addRegistration(Registration registration) {
-        registration = registrationRepository.save(registration);
 
-        if(registration.getId() == null) {
+        if(StringUtils.isEmpty(registration.getId())) {
             Course course = new Course();
             course.setName("Intro");
-            course.setDescription("Every attendee must comple the intro.");
+            course.setDescription("Every attendee must complete the intro.");
             course.setRegistration(registration);
 
             courseRepository.save(course);
         }
-
+        registration = registrationRepository.save(registration);
         return registration;
     }
 
@@ -44,7 +44,9 @@ public class RegistrationServiceImpl implements RegistrationService {
 
     @Override
     public List<RegistrationReport> findAllReports() {
+//        return registrationRepository.findAllReports();
         return registrationRepository.registrationReport();
+
     }
 
 }

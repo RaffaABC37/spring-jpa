@@ -18,10 +18,10 @@ public class Registration {
     public static final String REGISTRATION_REPORT = "Registration.registrationReport";
 
     public static final String REGISTRATION_REPORT_JPQL =
-            "Select new com.pluralsight.conference.model.RegistrationReport" +
-            "(r.name, c.name, c.description) " +
-            "from Registration r, Course c " +
-            "where r.id = c.registration.id";
+        "select new com.pluralsight.conference.model.RegistrationReport "
+        + "(r.name, c.name, c.description)"
+        + " from Registration r, Course c "
+        + "where r.id = c.registration.id";
 
 
     @Id

@@ -20,12 +20,12 @@ public class RegistrationController {
     @Autowired
     private RegistrationService registrationService;
 
-    @GetMapping("registration")
+    @GetMapping("/registration")
     public String getRegistration(@ModelAttribute ("registration")Registration registration) {
         return "registration";
     }
 
-    @GetMapping("registrations")
+    @GetMapping("/registrations")
     public @ResponseBody
     List<Registration>
     getRegistrations() {
@@ -33,7 +33,7 @@ public class RegistrationController {
         return registrations;
     }
 
-    @GetMapping("registration-reports")
+    @GetMapping("/registration-reports")
     public @ResponseBody
     List<RegistrationReport>
     getRegistrationReports() {

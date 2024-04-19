@@ -5,12 +5,12 @@ networks:
 
 services:
   db:
-    image: mysql:5.7
+    image: mysql:8.0
     container_name: conference
     ports:
-    - 3306:3306
+    - 3306
     volumes:
     - "./.data/db:/var/lib/mysql"
     environment:
-      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_ROOT_PASSWORD: rcg27
       MYSQL_DATABASE: conference
